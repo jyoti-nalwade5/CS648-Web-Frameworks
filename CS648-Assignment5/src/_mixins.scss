@@ -1,0 +1,30 @@
+@mixin break($args...) {
+    @media (max-width: nth($args, 1)) {
+        @content;
+    }
+}
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin sectionWidth($qty, $margin) {
+    width: ((100% - (($qty - 1) * $margin)) / $qty);
+}
+
+@mixin socialIcon($image, $positionX: 0, $positionY: 0) {
+    background: url($image) $positionX $positionY;
+}
+
+@mixin navItem($fontSize: 1em, $marginRight: 10px) {
+    display: inline;
+    font-size: $fontSize;
+    margin-right: $marginRight;
+}

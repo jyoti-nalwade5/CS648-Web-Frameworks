@@ -1,0 +1,56 @@
+/* BASIC STYLES */
+body {
+    font-family: $font-family, sans-serif;
+    font-size: 1em;
+    line-height: 2em;
+    background: url($bg_image) $background repeat-x;
+    margin: 0;
+
+    main {
+        width: 940px;
+        margin: 0 auto;
+        padding: 0 10px;
+        @include break(959px) {
+            width: 768px;
+        }
+        @include break(767px) {
+            width: 460px;
+        }
+        @include break(459px) {
+            width: 300px;
+        }
+    }
+}
+
+/* HEADER */
+header {
+    width: inherit;
+    clear: both;
+    text-align: center;
+    padding-top: 40px;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        @include break(767px) {
+            margin-bottom: 100px;
+        }
+        @include break(459px) {
+            margin-bottom: 80px;
+        }
+    }
+}
+
+select {
+    @include break(459px) {
+        width: 95%;
+    }
+}
+
+$heading-colors: $red-orange, $background, $grey;
+
+@for $item from 1 through length($heading-colors) {
+    h#{$item} {
+        color: nth($heading-colors, $item);
+    }
+}
