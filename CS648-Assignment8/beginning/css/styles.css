@@ -1,0 +1,92 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+form{
+    margin: 50px auto;
+    text-align: left;
+    max-width: 600px;
+    padding: 30px 60px;
+    border: 1px solid rgb(7, 3, 3);
+}
+
+h1{
+    text-align: center;
+}
+.form_div{
+    margin-bottom: 20px;
+}
+
+.form_div label{
+    display: inline;
+    float: inline-start;
+}
+
+.form_div input{
+    border-radius: 2px;
+    float:right;
+    padding: 5px;
+    border: 1px solid rgb(49, 49, 196);
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.form_div span{
+    float: right;
+    margin-right: 10px;
+}
+strong{
+    color: rgb(14, 134, 138);
+}
+button[id ="add"] {
+    display: block;
+    margin-top: 30px ;
+    margin-left: 45% ;
+    width: 50px;
+    align-content: center;
+    padding: 2px;
+    color: white;
+    border: 1px solid rgb(162, 215, 240);
+    background-color: rgb(31, 31, 146);
+}
+
+button{
+    background-color: rgb(56, 72, 163);
+    margin-left: 40px;
+    color: white;
+    border: 1px solid rgb(162, 215, 240);
+
+}
+
+#employees{
+    border-collapse: collapse;
+    width: 100%;
+}
+#employees th, td{
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+#employees th {
+    text-align: center;
+    background-color: #28227e;
+    color: white;
+    padding: 7px;
+  }
+#employees tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#employees tr:hover {
+    background-color: #ddd;
+}
+
+#employees td {
+    text-align: left;
+    padding: 7px;
+  }
+
+.error {
+    color: red;
+}
