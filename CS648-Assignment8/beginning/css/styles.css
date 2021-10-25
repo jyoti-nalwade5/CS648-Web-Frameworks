@@ -31,6 +31,11 @@ h1{
     width: 50%;
     margin-bottom: 10px;
 }
+
+.form_div span{
+    float: right;
+    margin-right: 10px;
+}
 strong{
     color: rgb(14, 134, 138);
 }
@@ -44,6 +49,14 @@ button[id ="add"] {
     color: white;
     border: 1px solid rgb(162, 215, 240);
     background-color: rgb(31, 31, 146);
+}
+
+button{
+    background-color: rgb(56, 72, 163);
+    margin-left: 40px;
+    color: white;
+    border: 1px solid rgb(162, 215, 240);
+
 }
 
 #employees{
@@ -73,3 +86,7 @@ button[id ="add"] {
     text-align: left;
     padding: 7px;
   }
+
+.error {
+    color: red;
+}

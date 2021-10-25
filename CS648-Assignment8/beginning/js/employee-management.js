@@ -54,4 +54,49 @@ function displayEmployee(){
     
         displayEmployee();
     }
+
+    function addEmployee(event) {
+        event.preventDefault();
+    
+        var hasError = false;
+        var form = event.currentTarget.closest('form');
+        var name = form.querySelector('input[id="name"]');
+        var title = form.querySelector('input[id="title"]');
+        var extension = form.querySelector('input[id="extension"]');
+    
+        var requiredFields = [name, title, extension];
+        for (var i = 0; i < requiredFields.length; i++) {
+            if (requiredFields[i].value === '') {
+                displayError(requiredFields[i]);
+                hasError = true;
+            }
+        }
+    
+        if (hasError) {
+            return false;
+        }
+    
+        employeeList.push({
+            name: name.value,
+            title: title.value,
+            extension: extension.value
+        });
+    
+        displayEmployee();
+        resetForm(form);
+    }
+    
+    function resetForm(form) {
+        form.reset();
+        var errorNodes = form.querySelectorAll('.error');
+        for (var i = 0; i < errorNodes.length; i++) {
+            errorNodes[i].classList.add('hide');
+        }
+    }
+    
+    function displayError(element) {
+        var error = element.parentNode.querySelector('.error');
+        error.innerHTML = "Required field !";
+        error.classList.remove('hide');
+    }
     
