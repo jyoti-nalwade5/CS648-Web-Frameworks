@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
+    <title>JQuery Events</title>
+    <script>
+        $(function () {
+            let nav = "<ul id = 'nav' style='list-style-type: disc;'>";
+            let div = "<div id = 'div'></div>";
+            $('body').append(nav);
+            $('body').append("<br><br>", div);
+
+            // Task 1 
+            $('#nav').append("<li><button id = 'button1' style='margin-top:10px;'>Button 1</button></li>");
+            $('#button1').click(function () {
+                window.alert(event.target.innerHTML + " clicked !");
+            });
+
+            // Task 2 
+            $('#nav').append("<li><button id = 'button2' style='margin-top:10px;'>Button 2</button></li>");
+            $('#button2').bind('click', function () {
+                window.alert(event.target.innerHTML + " clicked !");
+            });
+
+            // Task 3 
+            $('#nav').append("<li><button id = 'button3' style='margin-top:10px;'>Button 3</button></li>");
+            $('#button3').on('click', function () {
+                window.alert(event.target.innerHTML + " clicked !");
+            });
+
+            // Task 4 
+            $('#nav').append("<li><button id = 'button4' style='margin-top:10px;'>Button 4</button></li>");
+            $('#nav').append("<li><button id = 'button5' style='margin-top:10px;'>Button 5</button></li>");
+            $("#button4, #button5").on('click', function () {
+                window.alert(event.target.innerHTML + " clicked!");
+            });
+            $('#nav').append("</ul>");
+            
+
+            // Task 6 
+            $("#div").css({
+                "width": "400px",
+                "height": "400px",
+                "background-color": "gray",
+                "border": " 2px solid black"
+            });
+
+            //span
+            let span = "<span id = 'span'>ACTION: </span>";
+            $("body").append("<br>", span);
+            $("#div").on({
+                mouseenter: function () {
+                    $("#span").html("ACTION: You \"ENTERED\" into the DIV!");
+                },
+                mouseleave: function () {
+                    $("#span").html("ACTION: You \"LEFT\" from the DIV!");
+                },
+                click: function () {
+                    $("#span").html("ACTION: You \"CLICKED\" into the DIV!");
+                }
+            });
+
+            //Event Task 7 
+            let div1 = "<div id = 'div1'></div>";
+            let link = "<a href = 'http://modulemedia.com'>Module Media</a>";
+            $("body").append("<br><br>", div1);
+            $("#div1").append(link);
+            $("#div1 a").click(function () {
+                event.preventDefault();
+                $(this).css("color", "red");
+                alert(event.target);
+            });
+
+            // Event Task 8 
+            let div2 = "<div id = 'div2'></div>";
+            $('body').append("<br><br>", div2);
+            $('#div2').css({
+                "width": "200px",
+                "height": "20px",
+                "border": "1px solid black"
+            });
+            $("#div2").html("Width : " + $(window).width() + ", Height : " + $(window).height());
+            $(window).resize(function () {
+                $("#div2").text("Width : " + $(window).width() + ", Height : " + $(window).height());
+            });
+
+            //Event Task 9 - Update Focus
+            let inputfield = "<input id = focus></input>";
+            $("body").append("<br><br>", inputfield);
+            $("#focus").on({
+                focus: function () {
+                    $(this).css('background', 'lightgray');
+                },
+                blur: function () {
+                    $(this).css('background', 'white');
+                }
+            });
+
+            //Event Task 10 - Form Validation
+            let form = "<form id= 'form'></form>";
+            $('body').append('<br>', form);
+            let nameInput = "<input id = 'nameInput' placeholder = 'Name'></input>";
+            $('#form').append('<br><br>', nameInput);
+
+            let emailInput = "<input id ='emailInput' placeholder = 'Email'></input>";
+            $('#form').append('<br><br>', emailInput);
+
+            let submit = "<input id = 'submit' type = 'submit'></input>";
+            $('#form').append('<br><br>', submit);
+
+            $("#form").submit(function (event) {
+                event.preventDefault();
+                const val1 = $('#nameInput').val().trim();
+                const val2 = $('#emailInput').val().trim();
+                const valid = true;
+
+                if (val1 == '') {
+                    $('#nameInput').css('border', '2px solid red');
+                    window.alert("Name input required");
+                    valid = false;
+                }
+                if (val2 == '') {
+                    $('#emailInput').css('border', '2px solid red');
+                    window.alert("Email input required");
+                    valid = false;
+                }
+                if (val1 != '' && val2 != '') {
+                    $('#nameInput').css('border', '2px solid green');
+                    $('#emailInput').css('border', '2px solid green');
+                }
+            })
+        });   
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
