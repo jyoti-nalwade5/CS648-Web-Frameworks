@@ -4,12 +4,18 @@ import ProductRow from './ProductRow';
 
 class ProductTable extends Component {
 
+
+    handleDestroy = (id) => {
+        this.props.onDestroy(id)
+    }
+
     render() {
-        
+        let filterText = this.props.filterText;
+        let products = this.props.products;
         return (
             <div>
-                <table >
-                    <thead >
+                <table class="table table-striped">
+                    <thead class="thead-dark">
                         <tr>
                             <th>Name</th>
                             <th>Category</th>
@@ -18,9 +24,24 @@ class ProductTable extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <ProductRow/>
-                        <ProductRow/>
-                        <ProductRow/>
+                        {
+                            Object.keys(products)
+                                .filter(
+                                    key => products[key].name.indexOf(filterText) >= 0
+                                )
+                                .map( 
+                                key => {
+                                    return (
+                                        <ProductRow 
+                                            key = {products[key].id} 
+                                            product = {products[key]} 
+                                            onDestroy={this.handleDestroy} 
+                                        >
+                                        </ProductRow>
+                                    )
+                                }
+                            )
+                        }
                     </tbody>
                 </table>
             </div>
