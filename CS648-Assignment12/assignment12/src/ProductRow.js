@@ -7,9 +7,7 @@ class ProductRow extends Component {
    }
 
     render() {
-        let name = this.props.product.name;
-        let price = this.props.product.price;
-        let category = this.props.product.category;
+        const {name, price, category}=this.props.product
         return (
             <tr>
                 <td>{name}</td>

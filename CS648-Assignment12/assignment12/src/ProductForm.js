@@ -13,10 +13,8 @@ class ProductForm extends Component {
     }
 
     validate = () => {
-        
-        let name = this.state.product.name;
-        let category = this.state.product.category;
-        let price = this.state.product.price;
+
+        let {name, category, price} = this.props
         let errors = {}
 
         if(name === "") {
